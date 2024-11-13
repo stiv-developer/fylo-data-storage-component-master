@@ -1,0 +1,266 @@
+:root {
+    /* ### Primary */
+
+    --Gradient: hsl(6, 100%, 80%) to hsl(335, 100%, 65%);
+
+    /* ### Neutral */
+
+    --Pale-Blue: hsl(243, 100%, 93%);
+    --Grayish-Blue: hsl(229, 7%, 55%);
+    --Dark-Blue: hsl(228, 56%, 26%);
+    --Very-Dark-Blue: hsl(229, 57%, 11%);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Raleway", serif;
+    font-style: normal;
+
+    background-image: url(images/bg-mobile.png);
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.img-container{
+    display: none;
+}
+
+.container {
+    padding: 50px 25px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.card {
+    background-color: var(--Dark-Blue);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.card.first {
+    border-radius: 10px 100px 10px 10px;
+}
+
+.card.first .card-body {}
+
+.card.first .card-body img {}
+
+.card.first .card-body .group-icons {}
+
+.card.first .card-body .group-icons ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    justify-content: space-between;
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.card.second {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.card.second .card-header {}
+
+.card.second .card-header p {
+    color: var(--Pale-Blue);
+    font-weight: 300;
+}
+
+.card.second .card-header p span {
+    color: var(--Pale-Blue);
+    font-weight: 500;
+}
+
+.card.first .card-body .group-icons ul li {
+    background-color: var(--Very-Dark-Blue);
+    width: 50px;
+    height: 40px;
+    /* padding-right: 15px; */
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.card.first .card-body .group-icons ul li img {
+
+    width: 23px;
+    height: 18px;
+}
+
+
+
+/* Container for the progress bar */
+.card.second .card-header .progress-container {
+    width: 100%;
+    /* Full width */
+    background-color: var(--Very-Dark-Blue);
+    /* Light background for the track */
+    border-radius: 35px;
+    overflow: hidden;
+    height: 25px;
+    /* Adjust height as needed */
+}
+
+/* The progress bar itself */
+.card.second .card-header .progress-container .progress-bar {
+    height: 66%;
+    width: 80%;
+    /* Set the initial width (50% progress) */
+    background-image: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    /* Customize color */
+    transition: width 0.4s ease;
+    /* Smooth transition for animation */
+    border: 4px solid black;
+    border-radius: 35px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.card.second .card-header .progress-container .progress-bar .progress-circle {
+    width: 12.5px;
+    height: 12.5px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 3px;
+}
+
+.card.second .card-header .count-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.card.second .card-header .count-container span {
+    color: var(--Pale-Blue);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.card.second .card-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    background-color: white;
+    width: 200px;
+    height: 70px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -30px;
+}
+
+.card.second .card-body .number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--Dark-Blue);
+}
+
+.card.second .card-body .gb {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--Grayish-Blue);
+}
+
+
+
+@media only screen and (min-width: 1000px) {
+
+    body {
+        background-image: none;
+        background-color: var(--Very-Dark-Blue);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        width: 1000px;
+        margin-right: auto;
+        margin-left: auto;
+        /* padding-top: 200px; */
+    }
+
+    .cards {
+        flex-direction: row;
+        column-gap: 20px;
+    }
+
+    .cards .card.first {
+        width: 30%;
+    }
+
+    .cards .card.second {
+        width: 70%;
+        align-items: start;
+    }
+
+    .card.second .card-header {
+        width: 100%;
+    }
+
+    .card.second .card-body {
+        bottom: none;
+        top: -40px;
+        right: 30px;
+    }
+
+    .card.second .card-body::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        /* Adjusts the placement of the triangle */
+        right: 0px;
+        /* Adjusts the horizontal placement of the triangle */
+        width: 0;
+        height: 0;
+        border-left: 30px solid transparent;
+        border-right: 0px solid transparent;
+        border-top: 30px solid white;
+        /* Matches the background color of the speech bubble */
+    }
+
+    .card.second .card-header .count-container {
+        margin-bottom: 10px;
+    }
+
+    .img-container{
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        height: 50vh;
+        z-index: -1;
+        display: block;
+    }
+
+    .img-container .bg-img-body{
+        width: 100vw;
+        height: 50vh;
+    }
+
+
+}
